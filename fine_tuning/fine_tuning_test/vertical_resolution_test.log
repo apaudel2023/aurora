@@ -1,0 +1,200 @@
+2025-04-21 10:24:30,007 - INFO - Logging initialized. Log file: /home/user/Documents/aurora/aurora_foked/aurora/fine_tuning/fine_tuning_test/vertical_resolution_test.log
+2025-04-21 10:24:30,007 - INFO -
+==================================================
+2025-04-21 10:24:30,008 - INFO - Fine-tuning with 13 pressure levels
+2025-04-21 10:24:30,008 - INFO - ==================================================
+
+2025-04-21 10:24:30,008 - INFO - Fine-tuning with 13 pressure levels
+2025-04-21 10:24:47,491 - INFO - Generated 13 pressure levels: (100, 175, 250, 325, 400, 475, 550, 625, 700, 775, 850, 925, 1000)
+2025-04-21 10:24:47,491 - INFO - Generated 4 timesteps: (datetime.datetime(2020, 6, 1, 0, 0), datetime.datetime(2020, 6, 1, 6, 0), datetime.datetime(2020, 6, 1, 12, 0), datetime.datetime(2020, 6, 1, 18, 0))
+2025-04-21 10:24:47,492 - INFO -
+Batch Data Shapes:
+2025-04-21 10:24:47,493 - INFO - Surface Variables:
+2025-04-21 10:24:47,493 - INFO -   2t: torch.Size([1, 4, 17, 32])
+2025-04-21 10:24:47,493 - INFO -   10u: torch.Size([1, 4, 17, 32])
+2025-04-21 10:24:47,493 - INFO -   10v: torch.Size([1, 4, 17, 32])
+2025-04-21 10:24:47,493 - INFO -
+Static Variables:
+2025-04-21 10:24:47,493 - INFO -   z: torch.Size([17, 32])
+2025-04-21 10:24:47,493 - INFO -
+Atmospheric Variables:
+2025-04-21 10:24:47,493 - INFO -   z: torch.Size([1, 4, 13, 17, 32])
+2025-04-21 10:24:47,493 - INFO -   u: torch.Size([1, 4, 13, 17, 32])
+2025-04-21 10:24:47,493 - INFO -   v: torch.Size([1, 4, 13, 17, 32])
+2025-04-21 10:24:47,493 - INFO -   t: torch.Size([1, 4, 13, 17, 32])
+2025-04-21 10:24:47,493 - INFO -   q: torch.Size([1, 4, 13, 17, 32])
+2025-04-21 10:24:47,493 - INFO -
+Metadata:
+2025-04-21 10:24:47,493 - INFO -   lat: torch.Size([17])
+2025-04-21 10:24:47,493 - INFO -   lon: torch.Size([32])
+2025-04-21 10:24:47,493 - INFO -   time: 4 timesteps - (datetime.datetime(2020, 6, 1, 0, 0), datetime.datetime(2020, 6, 1, 6, 0), datetime.datetime(2020, 6, 1, 12, 0), datetime.datetime(2020, 6, 1, 18, 0))
+2025-04-21 10:24:47,493 - INFO -   atmos_levels: 13 levels
+2025-04-21 10:24:47,674 - INFO - Step 1/5
+2025-04-21 10:24:47,676 - ERROR - Error during fine-tuning step 1: Aurora.forward() got an unexpected keyword argument 'lead_time'
+2025-04-21 10:24:47,676 - ERROR - Failed with 13 levels: Aurora.forward() got an unexpected keyword argument 'lead_time'
+2025-04-21 10:24:47,678 - INFO -
+==================================================
+2025-04-21 10:24:47,678 - INFO - Fine-tuning with 25 pressure levels
+2025-04-21 10:24:47,678 - INFO - ==================================================
+
+2025-04-21 10:24:47,678 - INFO - Fine-tuning with 25 pressure levels
+2025-04-21 10:25:03,211 - INFO - Generated 25 pressure levels: (100, 137, 175, 212, 250, 287, 325, 362, 400, 437, 475, 512, 550, 587, 625, 662, 700, 737, 775, 812, 850, 887, 925, 962, 1000)
+2025-04-21 10:25:03,211 - INFO - Generated 4 timesteps: (datetime.datetime(2020, 6, 1, 0, 0), datetime.datetime(2020, 6, 1, 6, 0), datetime.datetime(2020, 6, 1, 12, 0), datetime.datetime(2020, 6, 1, 18, 0))
+2025-04-21 10:25:03,213 - INFO -
+Batch Data Shapes:
+2025-04-21 10:25:03,213 - INFO - Surface Variables:
+2025-04-21 10:25:03,213 - INFO -   2t: torch.Size([1, 4, 17, 32])
+2025-04-21 10:25:03,213 - INFO -   10u: torch.Size([1, 4, 17, 32])
+2025-04-21 10:25:03,213 - INFO -   10v: torch.Size([1, 4, 17, 32])
+2025-04-21 10:25:03,213 - INFO -
+Static Variables:
+2025-04-21 10:25:03,213 - INFO -   z: torch.Size([17, 32])
+2025-04-21 10:25:03,213 - INFO -
+Atmospheric Variables:
+2025-04-21 10:25:03,213 - INFO -   z: torch.Size([1, 4, 25, 17, 32])
+2025-04-21 10:25:03,213 - INFO -   u: torch.Size([1, 4, 25, 17, 32])
+2025-04-21 10:25:03,213 - INFO -   v: torch.Size([1, 4, 25, 17, 32])
+2025-04-21 10:25:03,213 - INFO -   t: torch.Size([1, 4, 25, 17, 32])
+2025-04-21 10:25:03,213 - INFO -   q: torch.Size([1, 4, 25, 17, 32])
+2025-04-21 10:25:03,213 - INFO -
+Metadata:
+2025-04-21 10:25:03,213 - INFO -   lat: torch.Size([17])
+2025-04-21 10:25:03,213 - INFO -   lon: torch.Size([32])
+2025-04-21 10:25:03,213 - INFO -   time: 4 timesteps - (datetime.datetime(2020, 6, 1, 0, 0), datetime.datetime(2020, 6, 1, 6, 0), datetime.datetime(2020, 6, 1, 12, 0), datetime.datetime(2020, 6, 1, 18, 0))
+2025-04-21 10:25:03,213 - INFO -   atmos_levels: 25 levels
+2025-04-21 10:25:03,393 - INFO - Step 1/5
+2025-04-21 10:25:03,395 - ERROR - Error during fine-tuning step 1: Aurora.forward() got an unexpected keyword argument 'lead_time'
+2025-04-21 10:25:03,395 - ERROR - Failed with 25 levels: Aurora.forward() got an unexpected keyword argument 'lead_time'
+2025-04-21 10:25:03,411 - INFO -
+==================================================
+2025-04-21 10:25:03,411 - INFO - Fine-tuning with 50 pressure levels
+2025-04-21 10:25:03,411 - INFO - ==================================================
+
+2025-04-21 10:25:03,411 - INFO - Fine-tuning with 50 pressure levels
+2025-04-21 10:25:19,185 - INFO - Generated 50 pressure levels: (100, 118, 136, 155, 173, 191, 210, 228, 246, 265, 283, 302, 320, 338, 357, 375, 393, 412, 430, 448, 467, 485, 504, 522, 540, 559, 577, 595, 614, 632, 651, 669, 687, 706, 724, 742, 761, 779, 797, 816, 834, 853, 871, 889, 908, 926, 944, 963, 981, 1000)
+2025-04-21 10:25:19,185 - INFO - Generated 4 timesteps: (datetime.datetime(2020, 6, 1, 0, 0), datetime.datetime(2020, 6, 1, 6, 0), datetime.datetime(2020, 6, 1, 12, 0), datetime.datetime(2020, 6, 1, 18, 0))
+2025-04-21 10:25:19,188 - INFO -
+Batch Data Shapes:
+2025-04-21 10:25:19,188 - INFO - Surface Variables:
+2025-04-21 10:25:19,188 - INFO -   2t: torch.Size([1, 4, 17, 32])
+2025-04-21 10:25:19,188 - INFO -   10u: torch.Size([1, 4, 17, 32])
+2025-04-21 10:25:19,188 - INFO -   10v: torch.Size([1, 4, 17, 32])
+2025-04-21 10:25:19,188 - INFO -
+Static Variables:
+2025-04-21 10:25:19,188 - INFO -   z: torch.Size([17, 32])
+2025-04-21 10:25:19,188 - INFO -
+Atmospheric Variables:
+2025-04-21 10:25:19,188 - INFO -   z: torch.Size([1, 4, 50, 17, 32])
+2025-04-21 10:25:19,188 - INFO -   u: torch.Size([1, 4, 50, 17, 32])
+2025-04-21 10:25:19,188 - INFO -   v: torch.Size([1, 4, 50, 17, 32])
+2025-04-21 10:25:19,188 - INFO -   t: torch.Size([1, 4, 50, 17, 32])
+2025-04-21 10:25:19,188 - INFO -   q: torch.Size([1, 4, 50, 17, 32])
+2025-04-21 10:25:19,188 - INFO -
+Metadata:
+2025-04-21 10:25:19,188 - INFO -   lat: torch.Size([17])
+2025-04-21 10:25:19,188 - INFO -   lon: torch.Size([32])
+2025-04-21 10:25:19,189 - INFO -   time: 4 timesteps - (datetime.datetime(2020, 6, 1, 0, 0), datetime.datetime(2020, 6, 1, 6, 0), datetime.datetime(2020, 6, 1, 12, 0), datetime.datetime(2020, 6, 1, 18, 0))
+2025-04-21 10:25:19,189 - INFO -   atmos_levels: 50 levels
+2025-04-21 10:25:19,189 - INFO - Step 1/5
+2025-04-21 10:25:19,190 - ERROR - Error during fine-tuning step 1: Aurora.forward() got an unexpected keyword argument 'lead_time'
+2025-04-21 10:25:19,190 - ERROR - Failed with 50 levels: Aurora.forward() got an unexpected keyword argument 'lead_time'
+2025-04-21 10:31:21,953 - INFO - Logging initialized. Log file: /home/user/Documents/aurora/aurora_foked/aurora/fine_tuning/fine_tuning_test/vertical_resolution_test.log
+2025-04-21 10:31:21,953 - INFO -
+==================================================
+2025-04-21 10:31:21,953 - INFO - Fine-tuning with 13 pressure levels
+2025-04-21 10:31:21,953 - INFO - ==================================================
+
+2025-04-21 10:31:21,953 - INFO - Fine-tuning with 13 pressure levels
+2025-04-21 10:31:39,141 - INFO - Generated 13 pressure levels: (100, 175, 250, 325, 400, 475, 550, 625, 700, 775, 850, 925, 1000)
+2025-04-21 10:31:39,141 - INFO - Generated 4 timesteps: (datetime.datetime(2020, 6, 1, 0, 0), datetime.datetime(2020, 6, 1, 6, 0), datetime.datetime(2020, 6, 1, 12, 0), datetime.datetime(2020, 6, 1, 18, 0))
+2025-04-21 10:31:39,142 - INFO -
+Batch Data Shapes:
+2025-04-21 10:31:39,142 - INFO - Surface Variables:
+2025-04-21 10:31:39,142 - INFO -   2t: torch.Size([1, 4, 17, 32])
+2025-04-21 10:31:39,142 - INFO -   10u: torch.Size([1, 4, 17, 32])
+2025-04-21 10:31:39,142 - INFO -   10v: torch.Size([1, 4, 17, 32])
+2025-04-21 10:31:39,143 - INFO -
+Static Variables:
+2025-04-21 10:31:39,143 - INFO -   z: torch.Size([17, 32])
+2025-04-21 10:31:39,143 - INFO -
+Atmospheric Variables:
+2025-04-21 10:31:39,143 - INFO -   z: torch.Size([1, 4, 13, 17, 32])
+2025-04-21 10:31:39,143 - INFO -   u: torch.Size([1, 4, 13, 17, 32])
+2025-04-21 10:31:39,143 - INFO -   v: torch.Size([1, 4, 13, 17, 32])
+2025-04-21 10:31:39,143 - INFO -   t: torch.Size([1, 4, 13, 17, 32])
+2025-04-21 10:31:39,143 - INFO -   q: torch.Size([1, 4, 13, 17, 32])
+2025-04-21 10:31:39,143 - INFO -
+Metadata:
+2025-04-21 10:31:39,143 - INFO -   lat: torch.Size([17])
+2025-04-21 10:31:39,143 - INFO -   lon: torch.Size([32])
+2025-04-21 10:31:39,143 - INFO -   time: 4 timesteps - (datetime.datetime(2020, 6, 1, 0, 0), datetime.datetime(2020, 6, 1, 6, 0), datetime.datetime(2020, 6, 1, 12, 0), datetime.datetime(2020, 6, 1, 18, 0))
+2025-04-21 10:31:39,143 - INFO -   atmos_levels: 13 levels
+2025-04-21 10:31:39,159 - INFO - Step 1/5
+2025-04-21 10:31:39,164 - ERROR - Error during fine-tuning step 1: 'z_175'
+2025-04-21 10:31:39,164 - ERROR - Failed with 13 levels: 'z_175'
+2025-04-21 10:31:39,166 - INFO -
+==================================================
+2025-04-21 10:31:39,166 - INFO - Fine-tuning with 25 pressure levels
+2025-04-21 10:31:39,166 - INFO - ==================================================
+
+2025-04-21 10:31:39,166 - INFO - Fine-tuning with 25 pressure levels
+2025-04-21 10:31:54,599 - INFO - Generated 25 pressure levels: (100, 137, 175, 212, 250, 287, 325, 362, 400, 437, 475, 512, 550, 587, 625, 662, 700, 737, 775, 812, 850, 887, 925, 962, 1000)
+2025-04-21 10:31:54,599 - INFO - Generated 4 timesteps: (datetime.datetime(2020, 6, 1, 0, 0), datetime.datetime(2020, 6, 1, 6, 0), datetime.datetime(2020, 6, 1, 12, 0), datetime.datetime(2020, 6, 1, 18, 0))
+2025-04-21 10:31:54,600 - INFO -
+Batch Data Shapes:
+2025-04-21 10:31:54,601 - INFO - Surface Variables:
+2025-04-21 10:31:54,601 - INFO -   2t: torch.Size([1, 4, 17, 32])
+2025-04-21 10:31:54,601 - INFO -   10u: torch.Size([1, 4, 17, 32])
+2025-04-21 10:31:54,601 - INFO -   10v: torch.Size([1, 4, 17, 32])
+2025-04-21 10:31:54,601 - INFO -
+Static Variables:
+2025-04-21 10:31:54,601 - INFO -   z: torch.Size([17, 32])
+2025-04-21 10:31:54,601 - INFO -
+Atmospheric Variables:
+2025-04-21 10:31:54,601 - INFO -   z: torch.Size([1, 4, 25, 17, 32])
+2025-04-21 10:31:54,601 - INFO -   u: torch.Size([1, 4, 25, 17, 32])
+2025-04-21 10:31:54,601 - INFO -   v: torch.Size([1, 4, 25, 17, 32])
+2025-04-21 10:31:54,601 - INFO -   t: torch.Size([1, 4, 25, 17, 32])
+2025-04-21 10:31:54,601 - INFO -   q: torch.Size([1, 4, 25, 17, 32])
+2025-04-21 10:31:54,601 - INFO -
+Metadata:
+2025-04-21 10:31:54,601 - INFO -   lat: torch.Size([17])
+2025-04-21 10:31:54,601 - INFO -   lon: torch.Size([32])
+2025-04-21 10:31:54,601 - INFO -   time: 4 timesteps - (datetime.datetime(2020, 6, 1, 0, 0), datetime.datetime(2020, 6, 1, 6, 0), datetime.datetime(2020, 6, 1, 12, 0), datetime.datetime(2020, 6, 1, 18, 0))
+2025-04-21 10:31:54,601 - INFO -   atmos_levels: 25 levels
+2025-04-21 10:31:54,724 - INFO - Step 1/5
+2025-04-21 10:31:54,726 - ERROR - Error during fine-tuning step 1: 'z_137'
+2025-04-21 10:31:54,726 - ERROR - Failed with 25 levels: 'z_137'
+2025-04-21 10:31:54,728 - INFO -
+==================================================
+2025-04-21 10:31:54,728 - INFO - Fine-tuning with 50 pressure levels
+2025-04-21 10:31:54,728 - INFO - ==================================================
+
+2025-04-21 10:31:54,728 - INFO - Fine-tuning with 50 pressure levels
+2025-04-21 10:32:10,471 - INFO - Generated 50 pressure levels: (100, 118, 136, 155, 173, 191, 210, 228, 246, 265, 283, 302, 320, 338, 357, 375, 393, 412, 430, 448, 467, 485, 504, 522, 540, 559, 577, 595, 614, 632, 651, 669, 687, 706, 724, 742, 761, 779, 797, 816, 834, 853, 871, 889, 908, 926, 944, 963, 981, 1000)
+2025-04-21 10:32:10,471 - INFO - Generated 4 timesteps: (datetime.datetime(2020, 6, 1, 0, 0), datetime.datetime(2020, 6, 1, 6, 0), datetime.datetime(2020, 6, 1, 12, 0), datetime.datetime(2020, 6, 1, 18, 0))
+2025-04-21 10:32:10,474 - INFO -
+Batch Data Shapes:
+2025-04-21 10:32:10,474 - INFO - Surface Variables:
+2025-04-21 10:32:10,474 - INFO -   2t: torch.Size([1, 4, 17, 32])
+2025-04-21 10:32:10,474 - INFO -   10u: torch.Size([1, 4, 17, 32])
+2025-04-21 10:32:10,474 - INFO -   10v: torch.Size([1, 4, 17, 32])
+2025-04-21 10:32:10,474 - INFO -
+Static Variables:
+2025-04-21 10:32:10,474 - INFO -   z: torch.Size([17, 32])
+2025-04-21 10:32:10,474 - INFO -
+Atmospheric Variables:
+2025-04-21 10:32:10,474 - INFO -   z: torch.Size([1, 4, 50, 17, 32])
+2025-04-21 10:32:10,474 - INFO -   u: torch.Size([1, 4, 50, 17, 32])
+2025-04-21 10:32:10,474 - INFO -   v: torch.Size([1, 4, 50, 17, 32])
+2025-04-21 10:32:10,474 - INFO -   t: torch.Size([1, 4, 50, 17, 32])
+2025-04-21 10:32:10,474 - INFO -   q: torch.Size([1, 4, 50, 17, 32])
+2025-04-21 10:32:10,474 - INFO -
+Metadata:
+2025-04-21 10:32:10,474 - INFO -   lat: torch.Size([17])
+2025-04-21 10:32:10,474 - INFO -   lon: torch.Size([32])
+2025-04-21 10:32:10,474 - INFO -   time: 4 timesteps - (datetime.datetime(2020, 6, 1, 0, 0), datetime.datetime(2020, 6, 1, 6, 0), datetime.datetime(2020, 6, 1, 12, 0), datetime.datetime(2020, 6, 1, 18, 0))
+2025-04-21 10:32:10,474 - INFO -   atmos_levels: 50 levels
+2025-04-21 10:32:10,475 - INFO - Step 1/5
+2025-04-21 10:32:10,476 - ERROR - Error during fine-tuning step 1: 'z_118'
+2025-04-21 10:32:10,476 - ERROR - Failed with 50 levels: 'z_118'
