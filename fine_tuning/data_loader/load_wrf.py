@@ -1,8 +1,10 @@
 # fine_tuning/data_loader/load_wrf.py
 
 from pathlib import Path
+
 import numpy as np
 import xarray as xr
+
 
 def load_and_combine_wrf_files(path_2d_1, path_2d_2, path_3d_1, path_3d_2):
     """
@@ -41,16 +43,13 @@ def load_and_combine_wrf_files(path_2d_1, path_2d_2, path_3d_1, path_3d_2):
         lon1d = raw_lon.astype(np.float32)
 
     # Collapse 2D → 1D if needed
-    if 'lat2d' in locals():
+    if "lat2d" in locals():
         lat1d = lat2d[:, 0].astype(np.float32)
-    if 'lon2d' in locals():
+    if "lon2d" in locals():
         lon1d = lon2d[0, :].astype(np.float32)
 
     # Times (byte‑strings)
-    times = np.array([
-        ds2_1["Times"].values[0],
-        ds2_2["Times"].values[0]
-    ])
+    times = np.array([ds2_1["Times"].values[0], ds2_2["Times"].values[0]])
 
     meta_data = {
         "lat": lat1d,
@@ -61,7 +60,7 @@ def load_and_combine_wrf_files(path_2d_1, path_2d_2, path_3d_1, path_3d_2):
     # Surface vars
     surf_vars = {}
     for key, var in [("t2", "T2"), ("u10", "U10"), ("v10", "V10"), ("psfc", "PSFC")]:
-        a1 = ds2_1[var].values   # (1,H,W) or (H,W)
+        a1 = ds2_1[var].values  # (1,H,W) or (H,W)
         a2 = ds2_2[var].values
         # ensure time dim
         if a1.ndim == 2:
@@ -69,11 +68,10 @@ def load_and_combine_wrf_files(path_2d_1, path_2d_2, path_3d_1, path_3d_2):
             a2 = a2[None]
         surf_vars[key] = np.concatenate([a1, a2], axis=0).astype(np.float32)
 
-    static_vars = {
-        "z": ds2_1["Z"].values[0].astype(np.float32)
-    }
+    static_vars = {"z": ds2_1["Z"].values[0].astype(np.float32)}
 
-    ds2_1.close(); ds2_2.close()
+    ds2_1.close()
+    ds2_2.close()
 
     # --- 3D datasets ---
     ds3_1 = xr.open_dataset(f3d1, engine="netcdf4", decode_times=False)
@@ -89,7 +87,7 @@ def load_and_combine_wrf_files(path_2d_1, path_2d_2, path_3d_1, path_3d_2):
 
     # Atmospheric vars
     atom_vars = {}
-    mapping = {"z":"Z", "t":"TK", "u":"U", "v":"V", "q":"QVAPOR"}
+    mapping = {"z": "Z", "t": "TK", "u": "U", "v": "V", "q": "QVAPOR"}
     for key, var in mapping.items():
         b1 = ds3_1[var].values
         b2 = ds3_2[var].values
@@ -99,13 +97,14 @@ def load_and_combine_wrf_files(path_2d_1, path_2d_2, path_3d_1, path_3d_2):
             b2 = b2[None]
         atom_vars[key] = np.concatenate([b1, b2], axis=0).astype(np.float32)
 
-    ds3_1.close(); ds3_2.close()
+    ds3_1.close()
+    ds3_2.close()
 
     # Diagnostics
     print(f"lat/ lon shapes: {meta_data['lat'].shape}, {meta_data['lon'].shape}")
-    print("surf shapes:", {k:v.shape for k,v in surf_vars.items()})
-    print("static shapes:", {k:v.shape for k,v in static_vars.items()})
-    print("atom shapes:", {k:v.shape for k,v in atom_vars.items()})
+    print("surf shapes:", {k: v.shape for k, v in surf_vars.items()})
+    print("static shapes:", {k: v.shape for k, v in static_vars.items()})
+    print("atom shapes:", {k: v.shape for k, v in atom_vars.items()})
     print("pressure_levels shape:", meta_data["pressure_levels"].shape)
 
     return meta_data, surf_vars, static_vars, atom_vars

@@ -2,6 +2,7 @@
 
 import numpy as np
 
+
 def process_lat_lon(lat, lon):
     """
     From collapsed 2D→1D or raw 1D, produce:
@@ -20,11 +21,11 @@ def process_lat_lon(lat, lon):
 
     # collapse 2D→1D if needed
     if lat.ndim == 2:
-        lat = lat[:,0]
+        lat = lat[:, 0]
     elif lat.ndim != 1:
         raise ValueError("lat must be 1D or 2D")
     if lon.ndim == 2:
-        lon = lon[0,:]
+        lon = lon[0, :]
     elif lon.ndim != 1:
         raise ValueError("lon must be 1D or 2D")
 

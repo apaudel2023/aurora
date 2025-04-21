@@ -1,9 +1,11 @@
 # fine_tuning/data_loader/batch_util.py
 
+
 import numpy as np
 import torch
-from datetime import datetime
+
 from aurora import Batch, Metadata
+
 
 def make_aurora_batch(meta, surf, static, atom):
     """
@@ -33,7 +35,7 @@ def make_aurora_batch(meta, surf, static, atom):
 
     return Batch(
         surf_vars={
-            "2t":  torch.from_numpy(surf["t2"][None]),
+            "2t": torch.from_numpy(surf["t2"][None]),
             "10u": torch.from_numpy(surf["u10"][None]),
             "10v": torch.from_numpy(surf["v10"][None]),
             "msl": torch.from_numpy(surf["psfc"][None]),
@@ -49,9 +51,9 @@ def make_aurora_batch(meta, surf, static, atom):
             "z": torch.from_numpy(atom["z"][None]),
         },
         metadata=Metadata(
-            lat          = torch.from_numpy(np.ascontiguousarray(meta["lat"], dtype=np.float32)),
-            lon          = torch.from_numpy(np.ascontiguousarray(meta["lon"], dtype=np.float32)),
-            time         = time_tuple,
-            atmos_levels = meta["pressure_levels"],
+            lat=torch.from_numpy(np.ascontiguousarray(meta["lat"], dtype=np.float32)),
+            lon=torch.from_numpy(np.ascontiguousarray(meta["lon"], dtype=np.float32)),
+            time=time_tuple,
+            atmos_levels=meta["pressure_levels"],
         ),
     )
