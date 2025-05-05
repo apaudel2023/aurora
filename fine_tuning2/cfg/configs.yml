@@ -1,0 +1,62 @@
+# config.yml
+
+logging:
+  log_file: aurora_pipeline.log
+  level: INFO
+
+static:
+  path: /home/user/Documents/aurora/data_wrf/static/wrfconstants_conusII.nc
+  var_map:
+    z:   PHB
+    slt: ISLTYP
+    lsm: LANDMASK
+  engine: netcdf4
+  decode_times: false
+
+wrf2d:
+  var_map:
+    lat: XLAT
+    lon: XLONG
+    time: Times
+    2t: T2
+    10u: U10
+    10v: V10
+    msl: PSFC
+  engine: netcdf4
+  decode_times: false
+
+wrf3d:
+  var_map:
+    z: Z
+    t: TK
+    u: U
+    v: V
+    q: QVAPOR
+  engine: netcdf4
+  decode_times: false
+
+data_dirs:
+  wrf2d_dir: /home/user/Documents/aurora/data_wrf_test/2d
+  wrf3d_dir: /home/user/Documents/aurora/data_wrf_test/3d
+
+filename_prefixes:
+  wrf2d: wrf2d_d01_
+  wrf3d: wrf3d_d01_
+
+filename_suffix: .nc
+
+target_levels: [1000, 925, 850, 700, 600, 500, 400, 300, 250, 200, 150, 100, 50]
+
+batch:
+  history:     2        # number of frames to include
+  start_index: 0        # index of the first frame to include
+                         # (history=2 & start_index=0 → use [0,1])
+
+preprocessing:
+  patch_size: 4   # trim grids so H%patch_size==0 and W%patch_size==0
+
+model:
+  type: "small"
+  use_lora: false
+  device: "cuda"
+  prediction_steps: 2   # how many future timesteps to predict (rollout length)
