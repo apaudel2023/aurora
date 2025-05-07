@@ -8,7 +8,7 @@ class GridCropper:
     """
     Crop spatial grids so both dimensions become divisible by patch_size.
     Trims from the end (highest indices), and can apply the same crop
-    to 1D latitude/longitude arrays without re‑passing the removal counts.
+    to 1D latitude/longitude arrays.
     """
 
     def __init__(self, patch_size: int):
@@ -23,7 +23,7 @@ class GridCropper:
         arr: np.ndarray
     ) -> Tuple[np.ndarray, int, int]:
         """
-        Crop the last two dims of `arr` so they’re divisible by patch_size.
+        Crop the last two dims of `arr` so they are divisible by patch_size.
         Stores the removed row/col counts internally.
 
         Returns
@@ -43,7 +43,7 @@ class GridCropper:
         self.last_removed_w = removed_w
 
         self.logger.debug(
-            "Cropping grid from %d×%d to %d×%d (−%d rows, −%d cols)",
+            "Cropping grid from %dx%d to %dx%d (-%d rows, -%d cols)",
             H, W, H_crop, W_crop, removed_h, removed_w
         )
 
@@ -65,7 +65,7 @@ class GridCropper:
         # latitude: drop last rh entries
         if rh > 0:
             lat_c = lat[:-rh].copy()
-            self.logger.debug("Cropping lat: %d → %d (−%d)", lat.size, lat_c.size, rh)
+            self.logger.debug("Cropping lat: %d --> %d (-%d)", lat.size, lat_c.size, rh)
         else:
             lat_c = lat.copy()
             self.logger.debug("No lat cropping needed: %d", lat.size)
@@ -73,7 +73,7 @@ class GridCropper:
         # longitude: drop last rw entries
         if rw > 0:
             lon_c = lon[:-rw].copy()
-            self.logger.debug("Cropping lon: %d → %d (−%d)", lon.size, lon_c.size, rw)
+            self.logger.debug("Cropping lon: %d --> %d (-%d)", lon.size, lon_c.size, rw)
         else:
             lon_c = lon.copy()
             self.logger.debug("No lon cropping needed: %d", lon.size)

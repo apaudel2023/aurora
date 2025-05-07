@@ -1,5 +1,3 @@
-# data_parsing/file_pairs.py
-
 import logging
 from pathlib import Path
 import re

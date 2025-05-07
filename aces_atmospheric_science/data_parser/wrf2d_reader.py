@@ -1,5 +1,3 @@
-# fine_tuning2/data_parser/wrf2d_reader.py
-
 import logging
 from pathlib import Path
 from typing import Dict

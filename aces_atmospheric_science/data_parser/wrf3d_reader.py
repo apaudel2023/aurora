@@ -1,5 +1,3 @@
-# fine_tuning2/data_parser/wrf3d_reader.py
-
 import logging
 from typing import Dict, List, Optional
 
@@ -12,7 +10,7 @@ class WRF3DReader:
     """
     Reader & processor for WRF 3D snapshot files. Extracts configured
     atmospheric fields and interpolates them to the specified pressure
-    levels (in hPa), handling half‐level slicing for Z and destaggering
+    levels (in hPa), handling half-level slicing for Z and destaggering
     for U/V.
     """
 
@@ -24,7 +22,7 @@ class WRF3DReader:
         decode_times: bool = False,
     ):
         """
-        var_map: maps output keys → WRF variable names, e.g.
+        var_map: maps output keys --> WRF variable names, e.g.
           {
             "z":      "Z",
             "t":      "TK",
@@ -81,17 +79,17 @@ class WRF3DReader:
                 # WRF uses "bottom_top_stag" on Z
                 da = da.isel(bottom_top_stag=slice(0, p_da.sizes["bottom_top"]))
                 da = da.rename({"bottom_top_stag": "bottom_top"})
-                self.logger.debug("Sliced Z → %s", da.shape)
+                self.logger.debug("Sliced Z --> %s", da.shape)
 
             # destagger for U and V
             if out_key == "u":
                 ax = da.get_axis_num("west_east_stag")
                 da = destagger(da, ax, meta=True)
-                self.logger.debug("Destaggered U → %s", da.shape)
+                self.logger.debug("Destaggered U --> %s", da.shape)
             elif out_key == "v":
                 ax = da.get_axis_num("south_north_stag")
                 da = destagger(da, ax, meta=True)
-                self.logger.debug("Destaggered V → %s", da.shape)
+                self.logger.debug("Destaggered V --> %s", da.shape)
 
             # 3) interpolate each time & level
             arr = np.empty((nt, nlev, ny, nx), dtype=np.float32)
@@ -102,7 +100,7 @@ class WRF3DReader:
                     arr[ti, li, :, :] = sl2d.values.astype(np.float32)
 
             output[out_key] = arr
-            self.logger.info("Processed %-1s → shape %s", out_key, arr.shape)
+            self.logger.info("Processed %-1s --> shape %s", out_key, arr.shape)
 
         ds.close()
         return output

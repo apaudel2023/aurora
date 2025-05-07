@@ -1,4 +1,3 @@
-# fine_tuning2/batch/build_batch.py
 
 import torch
 from typing import Dict, Any

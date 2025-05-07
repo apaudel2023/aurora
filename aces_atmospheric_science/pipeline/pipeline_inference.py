@@ -203,17 +203,17 @@ class Pipeline:
         self.logger.info("After concatenation (%d time steps):", len(metadata["time"]))
         self.logger.info("  Surface variables:")
         for name, arr in surf_full.items():
-            self.logger.info("    %-6s → %s", name, arr.shape)
+            self.logger.info("    %-6s --> %s", name, arr.shape)
         self.logger.info("  Atmospheric variables:")
         for name, arr in atmos_full.items():
-            self.logger.info("    %-6s → %s", name, arr.shape)
+            self.logger.info("    %-6s --> %s", name, arr.shape)
 
 
         # 5) PREPROCESSING
         # 5a) normalize lat/lon
         lat360, lon360 = self.normer.normalize(metadata["lat"], metadata["lon"])
         metadata["lat"], metadata["lon"] = lat360, lon360
-        self.logger.info("Normalized lat → %s, lon → %s",
+        self.logger.info("Normalized lat --> %s, lon --> %s",
                          metadata["lat"].shape, metadata["lon"].shape)
 
         # 5b) Crop spatial dims 
@@ -224,7 +224,7 @@ class Pipeline:
         for name, arr in surf_full.items():
             cropped, rh, rw = self.cropper.crop_grid(arr)
             surf_full[name] = cropped
-            self.logger.info("    %-6s: %16s → %-16s   (-%2d rows, -%2d cols)",
+            self.logger.info("    %-6s: %16s --> %-16s   (-%2d rows, -%2d cols)",
                              name, str(arr.shape), str(cropped.shape), rh, rw)
 
         # Atmospheric
@@ -232,7 +232,7 @@ class Pipeline:
         for name, arr in atmos_full.items():
             cropped, rh, rw = self.cropper.crop_grid(arr)
             atmos_full[name] = cropped
-            self.logger.info("    %-6s: %16s → %-16s   (-%2d rows, -%2d cols)",
+            self.logger.info("    %-6s: %16s --> %-16s   (-%2d rows, -%2d cols)",
                              name, str(arr.shape), str(cropped.shape), rh, rw)
 
         # Static
@@ -240,13 +240,13 @@ class Pipeline:
         for name, arr in static_vars.items():
             cropped, rh, rw = self.cropper.crop_grid(arr)
             static_vars[name] = cropped
-            self.logger.info("    %-6s: %16s → %-16s   (-%2d rows, -%2d cols)",
+            self.logger.info("    %-6s: %16s --> %-16s   (-%2d rows, -%2d cols)",
                              name, str(arr.shape), str(cropped.shape), rh, rw)
 
         # 5c) Crop lat/lon now that crop_grid stored last removal internally
         lat_c, lon_c = self.cropper.crop_latlon(metadata["lat"], metadata["lon"])
         metadata["lat"], metadata["lon"] = lat_c, lon_c
-        self.logger.info("Cropped lat → %s, lon → %s", lat_c.shape, lon_c.shape)
+        self.logger.info("Cropped lat --> %s, lon --> %s", lat_c.shape, lon_c.shape)
 
 
         # 6) Build batch

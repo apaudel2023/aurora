@@ -1,4 +1,3 @@
-# fine_tuning2/data_parser/static_reader.py
 
 from typing import Dict, Optional
 import logging
